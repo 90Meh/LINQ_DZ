@@ -1,7 +1,6 @@
 ﻿using LINQ_DZ;
 using System.Collections.Generic;
 using System.Linq;
-using static IEnumerableExtension;
 
 internal class Program
 {
@@ -13,7 +12,7 @@ internal class Program
             list.Top(30).ToList().ForEach(x => Console.WriteLine(x));            
             Console.WriteLine("XXXXXXXXXXXXXXXXXXXXX");            
             var persons = new List<Person>() { new Person("Михаил7", 7), new Person("Иван57", 57), new Person("Андрей67", 67), new Person("Пётр23", 23) };
-            persons.Top(60, x => x.Age).ToList().ForEach(x => Console.WriteLine(x.Name));
+            persons.Top(60, person => person.Age).ToList().ForEach(person => Console.WriteLine(person.Name));
         }
         catch (Exception ex)
         {
@@ -22,18 +21,4 @@ internal class Program
     }
 }
 
-public static class IEnumerableExtension
-{
-    public class Person
-    {        
-        public Person(string name, int age)
-        {
-            Name = name;
-            Age = age;
-        }
-        public string Name { get; set; }
-        public int Age { get; set; }
-
-    }
-}
 
